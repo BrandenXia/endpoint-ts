@@ -8,26 +8,26 @@ type RequestOptions = Omit<Parameters<typeof fetch>[1], "method" | "body"> & {
 type RequestType = <T extends EndpointOptions>(
   endpoint: Endpoint<T>,
   params: {
-    [K in keyof Omit<T, "resBody">]: T[K] extends StrMap ? T[K] : undefined;
+    [K in keyof Omit<T, "response">]: T[K] extends StrMap ? T[K] : undefined;
   },
   options: RequestOptions,
-) => Promise<T["resBody"]>;
+) => Promise<T["response"]>;
 
 const request: RequestType = async (
   [method, path],
-  { pathParam, queryParam, reqBody },
+  { pathParam, query, body },
   options,
 ) => {
   const url = new URL(buildPath(path, pathParam), options.baseUrl);
 
-  if (queryParam)
-    for (const [key, value] of Object.entries(queryParam))
+  if (query)
+    for (const [key, value] of Object.entries(query))
       if (value) url.searchParams.set(key, value as string);
 
   const response = await fetch(url, {
     ...options,
     method,
-    body: reqBody ? JSON.stringify(reqBody) : undefined,
+    body: body ? JSON.stringify(body) : undefined,
   });
 
   if (!response.ok)

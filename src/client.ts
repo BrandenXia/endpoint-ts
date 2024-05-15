@@ -8,10 +8,10 @@ type EndpointRequest<
   O extends EndpointOptions = T extends Endpoint<infer O> ? O : never,
 > = (
   params: {
-    [K in keyof Omit<O, "resBody">]: O[K] extends StrMap ? O[K] : undefined;
+    [K in keyof Omit<O, "response">]: O[K] extends StrMap ? O[K] : undefined;
   },
   options?: Omit<RequestOptions, "baseUrl">,
-) => Promise<O["resBody"]>;
+) => Promise<O["response"]>;
 
 type WithRequest<T extends Record<string, Endpoint>> = {
   [K in keyof T]: EndpointRequest<T[K]>;

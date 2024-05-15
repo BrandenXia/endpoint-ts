@@ -3,9 +3,9 @@ import type { StrMap } from "./utils.ts";
 
 type EndpointOptions = {
   pathParam?: StrMap;
-  queryParam?: StrMap;
-  reqBody?: StrMap;
-  resBody?: StrMap;
+  query?: StrMap;
+  body?: StrMap;
+  response?: StrMap;
 };
 
 type Endpoint<T extends EndpointOptions = EndpointOptions> = [
