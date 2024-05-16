@@ -1,9 +1,8 @@
 import type { Endpoint, EndpointOptions } from "./endpoint.ts";
 import { buildPath, type StrMap } from "./utils.ts";
 
-type RequestOptions = Omit<Parameters<typeof fetch>[1], "method" | "body"> & {
+type RequestOptions = Omit<FetchRequestInit, "method" | "body"> & {
   baseUrl: string;
-  headers?: HeadersInit;
 };
 
 type RequestType = <T extends EndpointOptions>(

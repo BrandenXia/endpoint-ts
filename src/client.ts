@@ -23,7 +23,7 @@ class Client<T extends Record<string, Endpoint>> {
     endpoints: { [K in keyof T]: T[K] },
   ) {
     for (const [key, endpoint] of Object.entries(endpoints))
-      (this as any)[key] = this.request.bind(endpoint);
+      (this as any)[key] = this.request.bind(this, endpoint);
   }
 
   private readonly request: RequestType = async (endpoint, params, options) =>

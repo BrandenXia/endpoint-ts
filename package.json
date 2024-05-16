@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "bun run build.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "test": "bun test"
   },
   "license": "MIT",
   "homepage": "https://github.com/BrandenXia/endpoint-ts",
