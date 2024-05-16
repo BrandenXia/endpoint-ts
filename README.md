@@ -1,12 +1,12 @@
-# endpoints
+# endpoint-ts
 
 A lib for creating RESTful API wrappers.
 
 ## Usage
 
 ```typescript
-import { createClient, request } from "endpoints";
-import type { Endpoints } from "endpoints";
+import { createClient, request } from "endpoint-ts";
+import type { Endpoints } from "endpoint-ts";
 
 // Define your endpoints
 const test: Endpoint<{
