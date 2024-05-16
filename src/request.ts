@@ -3,6 +3,7 @@ import { buildPath, type StrMap } from "./utils.ts";
 
 type RequestOptions = Omit<Parameters<typeof fetch>[1], "method" | "body"> & {
   baseUrl: string;
+  headers?: HeadersInit;
 };
 
 type RequestType = <T extends EndpointOptions>(
@@ -27,7 +28,7 @@ const request: RequestType = async (
   const response = await fetch(url, {
     ...options,
     method,
-    body: body ? JSON.stringify(body) : undefined,
+    body: JSON.stringify(body),
   });
 
   if (!response.ok)
