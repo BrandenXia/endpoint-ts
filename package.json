@@ -1,6 +1,6 @@
 {
   "name": "endpoint-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple library for creating RESTful APIs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
   "scripts": {
     "build": "bun run build.ts",
     "format": "prettier --write .",
-    "test": "bun test"
+    "test": "bun test --coverage"
   },
   "license": "MIT",
   "homepage": "https://github.com/BrandenXia/endpoint-ts",
