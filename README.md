@@ -2,6 +2,12 @@
 
 A lib for creating RESTful API wrappers.
 
+## Installation
+
+```shell
+bun i endpoint-ts
+```
+
 ## Usage
 
 ```typescript
